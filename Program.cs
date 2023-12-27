@@ -1,9 +1,25 @@
+using Microsoft.EntityFrameworkCore;
+using ProjectManagerApi;
+using ProjectManagerApi.Data;
+using ProjectManagerApi.Data.Repositories.Implementations;
+using ProjectManagerApi.Extensions;
+using ProjectManagerApi.Models.Employees;
+using ProjectManagerApi.Models.Projects;
+using ProjectManagerApi.Models.Services;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<AppDbContext>()
+    .AddUnitOfWork()
+        .AddCustomRepository<Project, ProjectsRepository>()
+        .AddCustomRepository<Service, ServicesRepository>()
+        .AddCustomRepository<Employee, EmployeesRepository>()
+        .AddCustomRepository<Position, PositionsRepository>();
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -22,4 +38,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+PrepDb.PrepPopulation(app);
+
 app.Run();
+
