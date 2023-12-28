@@ -2,10 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using ProjectManagerApi;
 using ProjectManagerApi.Data;
 using ProjectManagerApi.Data.Repositories.Implementations;
+using ProjectManagerApi.Entities;
 using ProjectManagerApi.Extensions;
 using ProjectManagerApi.Models.Employees;
-using ProjectManagerApi.Models.Projects;
-using ProjectManagerApi.Models.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);

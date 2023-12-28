@@ -11,7 +11,7 @@ namespace ProjectManagerApi.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "EmployeePositions",
+                name: "Positions",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -21,7 +21,7 @@ namespace ProjectManagerApi.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EmployeePositions", x => x.Id);
+                    table.PrimaryKey("PK_Positions", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -71,23 +71,23 @@ namespace ProjectManagerApi.Migrations
                 {
                     table.PrimaryKey("PK_Employees", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Employees_EmployeePositions_PositionId",
+                        name: "FK_Employees_Positions_PositionId",
                         column: x => x.PositionId,
-                        principalTable: "EmployeePositions",
+                        principalTable: "Positions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_EmployeePositions_Title",
-                table: "EmployeePositions",
-                column: "Title",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Employees_PositionId",
                 table: "Employees",
                 column: "PositionId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Positions_Title",
+                table: "Positions",
+                column: "Title",
                 unique: true);
 
             migrationBuilder.CreateIndex(
@@ -116,7 +116,7 @@ namespace ProjectManagerApi.Migrations
                 name: "Services");
 
             migrationBuilder.DropTable(
-                name: "EmployeePositions");
+                name: "Positions");
         }
     }
 }

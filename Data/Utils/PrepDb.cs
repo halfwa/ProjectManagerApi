@@ -1,8 +1,7 @@
 
 using ProjectManagerApi.Data;
+using ProjectManagerApi.Entities;
 using ProjectManagerApi.Models.Employees;
-using ProjectManagerApi.Models.Projects;
-using ProjectManagerApi.Models.Services;
 
 namespace ProjectManagerApi
 {

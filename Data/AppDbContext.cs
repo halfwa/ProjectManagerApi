@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ProjectManagerApi.Data.Configurations;
+using ProjectManagerApi.Entities;
 using ProjectManagerApi.Models.Employees;
-using ProjectManagerApi.Models.Projects;
-using ProjectManagerApi.Models.Services;
 
 namespace ProjectManagerApi.Data
 {
@@ -25,8 +23,6 @@ namespace ProjectManagerApi.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
-            builder.ApplyConfiguration(new PositionConfiguration());
 
             builder.Entity<Employee>()
                 .HasOne(e => e.Position)

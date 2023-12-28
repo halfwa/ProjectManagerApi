@@ -2,12 +2,14 @@ namespace ProjectManagerApi
 {
     public interface IRepository<T> where T : class
     {
+        Task<bool> SaveChangesAsync();
+
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetAsync(int id);
-        Task CreateAsync(T item);
-        Task UpdateAsync(T item);
-        Task DeleteAsync(T item);
-        Task DeleteAllAsync();
+        Task<bool> CreateAsync(T item);
+        Task<bool> UpdateAsync(T item);
+        Task<bool> DeleteAsync(T item);
+        Task<bool> DeleteAllAsync();
 
     }
 }

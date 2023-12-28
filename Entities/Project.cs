@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
-namespace ProjectManagerApi.Models.Projects
+namespace ProjectManagerApi.Entities
 {
     [Index(nameof(Name), nameof(Link), IsUnique = true)]
     public class Project

@@ -1,0 +1,15 @@
+﻿using ProjectManagerApi.Models.Employees;
+using System.ComponentModel.DataAnnotations;
+
+namespace ProjectManagerApi.Dtos.Employees.Positions
+{
+    public class PositionReadDto
+    {
+        public int Id { get; set; }
+
+        public required string Title { get; set; }
+
+        public string? Description { get; set; }
+
+    }
+}

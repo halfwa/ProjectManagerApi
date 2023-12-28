@@ -19,10 +19,10 @@ namespace ProjectManagerApi.Data.Repository
             Set = _db.Set<T>();
         }
 
-        public async Task CreateAsync(T item)
+        public async Task<bool> CreateAsync(T item)
         {
             await Set.AddAsync(item);
-            await _db.SaveChangesAsync();
+            return await SaveChangesAsync();
         }
 
         public async Task<T> GetAsync(int id)
@@ -34,23 +34,28 @@ namespace ProjectManagerApi.Data.Repository
         {
             return await Set.ToListAsync();
         }
-        public async Task UpdateAsync(T item)
+
+        public async Task<bool> UpdateAsync(T item)
         {
             Set.Update(item);
-            await _db.SaveChangesAsync();
+            return await SaveChangesAsync();
         }
 
-        public async Task DeleteAllAsync()
+        public async Task<bool> DeleteAllAsync()
         {
             Set.RemoveRange(Set);
-            await _db.SaveChangesAsync();
+            return await SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(T item)
+        public async Task<bool> DeleteAsync(T item)
         {
             Set.Remove(item);
+            return await SaveChangesAsync();
+        }
 
-            await _db.SaveChangesAsync();
+        public async Task<bool> SaveChangesAsync()
+        {
+            return await _db.SaveChangesAsync() > 0;
         }
     }
 }

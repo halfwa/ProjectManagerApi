@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
-namespace ProjectManagerApi.Models.Services
+namespace ProjectManagerApi.Entities
 {
     [Index("Name", IsUnique = true)]
     public class Service

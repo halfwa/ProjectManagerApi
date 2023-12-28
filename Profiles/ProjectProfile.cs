@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using ProjectManagerApi.Dtos.Projects;
-using ProjectManagerApi.Models.Projects;
+using ProjectManagerApi.Entities;
 
 namespace ProjectManagerApi.Profiles
 {
@@ -10,6 +10,7 @@ namespace ProjectManagerApi.Profiles
         {
             CreateMap<ProjectCreateDto, Project>();
             CreateMap<Project, ProjectReadDto>();
+            CreateMap<ProjectUpdateDto, Project>();
         }
     }
 }
