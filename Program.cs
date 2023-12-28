@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ProjectManagerApi;
 using ProjectManagerApi.Data;
@@ -5,6 +6,7 @@ using ProjectManagerApi.Data.Repositories.Implementations;
 using ProjectManagerApi.Entities;
 using ProjectManagerApi.Extensions;
 using ProjectManagerApi.Models.Employees;
+using ProjectManagerApi.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +20,7 @@ builder.Services.AddDbContext<AppDbContext>()
         .AddCustomRepository<Position, PositionsRepository>();
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<IEmailRequest, EmailRequestService>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

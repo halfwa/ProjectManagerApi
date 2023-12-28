@@ -6,10 +6,12 @@ using ProjectManagerApi.Data.UoW;
 using ProjectManagerApi.Dtos.Employees;
 using ProjectManagerApi.Dtos.Services;
 using ProjectManagerApi.Entities;
+using ProjectManagerApi.Filters;
 using ProjectManagerApi.Models.Employees;
 
 namespace ProjectManagerApi.Controllers
 {
+    [ExceptionHandler]
     [Route("api/[controller]")]
     [ApiController]
     public class EmployeesController: ControllerBase

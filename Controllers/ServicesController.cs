@@ -6,10 +6,11 @@ using ProjectManagerApi.Data.UoW;
 using ProjectManagerApi.Dtos.Projects;
 using ProjectManagerApi.Dtos.Services;
 using ProjectManagerApi.Entities;
+using ProjectManagerApi.Filters;
 
 namespace ProjectManagerApi.Controllers
 {
-
+    [ExceptionHandler]
     [Route("api/[controller]")]
     [ApiController]
     public class ServicesController : ControllerBase

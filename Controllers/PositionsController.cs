@@ -4,10 +4,12 @@ using Microsoft.IdentityModel.Tokens;
 using ProjectManagerApi.Data.Repositories.Implementations;
 using ProjectManagerApi.Data.UoW;
 using ProjectManagerApi.Dtos.Employees.Positions;
+using ProjectManagerApi.Filters;
 using ProjectManagerApi.Models.Employees;
 
 namespace ProjectManagerApi.Controllers
 {
+    [ExceptionHandler]
     [Route("api/[controller]")]
     [ApiController]
     public class PositionsController : ControllerBase
